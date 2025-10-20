@@ -56,8 +56,10 @@ class PointerLockWeb extends PointerLockPlatform {
 
   @override
   Future<void> ensureInitialized() async {
-    _isInitialized = true;
-    _GlobalPointerHandlers.initialize();
+    if (!_isInitialized) {
+      _isInitialized = true;
+      _GlobalPointerHandlers.initialize();
+    }
   }
 
   @override
